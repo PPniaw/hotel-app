@@ -1,0 +1,15 @@
+
+/* .background{
+    background-color: rgba(173, 122, 54, 0.705);
+} */
+
+.room-header{
+    color: rgb(37, 36, 32);
+    font-size: 50px;
+    text-align: center;
+    padding: 30px;
+}
+
+.col-sm-6{
+    padding: 10px;
+}
