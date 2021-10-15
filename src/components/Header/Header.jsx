@@ -1,11 +1,5 @@
 import React, { Component } from 'react'
-import {
-    Navbar,
-    Nav,
-    NavDropdown,
-    Container,
-    Image,
-} from "react-bootstrap";
+import {Navbar,Nav,Container,Image} from "react-bootstrap";
 
 import logo from './imgs/logo.png'
 
