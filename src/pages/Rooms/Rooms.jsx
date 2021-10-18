@@ -18,8 +18,7 @@ import './Room.css'
 export default function Rooms() {
 
     const [currentRoomsData, setCurrentRoomsData] = useState({
-        roomsData: [1, 2, 3],
-        dataIsFetched: false,
+        roomsData: [],
     })
 
 
@@ -43,48 +42,26 @@ export default function Rooms() {
             .catch(err => console.log(err))
     };
 
-    // const getRoomsData = useCallback(
-    //     () => {
-    //         const gettingRoomsData = async () => {
-    //             try {
-    //                 const response = await apiGetAllRooms();
-    //                 setCurrentRoomsData({ roomsData: response.data.items });
-    //             } catch (e) {
-    //                 console.error(e);
-    //             }
-    //             setCurrentRoomsData({ dataIsFetched: true });
-    //         };
-
-    //         gettingRoomsData();
-    //     },
-    //     [],
-    // )
-
 
     // const getRoomsData = async () => {
     //     try {
     //         const response = await apiGetAllRooms();
+    //         console.log(response)
     //         setCurrentRoomsData({ roomsData: response.data.items });
     //     } catch (e) {
     //         console.error(e);
     //     }
-    //     setCurrentRoomsData({ dataIsFetched: true });
     // };
 
     useEffect(() => {
         console.log('useeffect');
         getData();
-        test();
         // getRoomsData();
 
     }, [])
 
 
-    const test = () => {
-        console.log(currentRoomsData.roomsData)
-        console.log(currentRoomsData.singleDayPrice)
-        console.log(currentRoomsData.dataIsFetched)
-    }
+    
 
 
     return (
