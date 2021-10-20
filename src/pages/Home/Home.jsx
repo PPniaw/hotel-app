@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
-import { Image, Card, Carousel } from 'react-bootstrap'
+import { Card, Carousel } from 'react-bootstrap'
 
-import hotel from './imgs/hotel.png'
 import pool from './imgs/pool.jpg'
 import room from './imgs/room.jpg'
 import meal from './imgs/meal.jpg'
 
 import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
+import Wrapper from '../../components/Wrapper/Wrapper'
+
 
 
 export default class Home extends Component {
@@ -15,7 +16,7 @@ export default class Home extends Component {
         return (
             <div>
                 <Header></Header>
-                <Image src={hotel} fluid />
+                <Wrapper/>
                 <div>
                     <Card className="text-center">
                         <Card.Header style={{ color: 'red', fontSize: '40px', fontWeight: 'bold' }}>

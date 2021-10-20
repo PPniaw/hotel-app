@@ -10,14 +10,14 @@ export default class Header extends Component {
         return (
             <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
                 <Container>
-                    <Navbar.Brand href="/home" >
+                    <Navbar.Brand href="/" >
                         <Image src={logo} width='45px' style={{ margin: '0px 10px' }} />
                         GoodDay Hotel
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link href="/home">Home</Nav.Link>
+                            <Nav.Link href="/">Home</Nav.Link>
                             <Nav.Link href="/meal">Meal</Nav.Link>
                             <Nav.Link href="/rooms">Rooms</Nav.Link>
                             <Nav.Link href="/connect">Connect Me</Nav.Link>

@@ -1,0 +1,11 @@
+
+.room-header {
+    color     : rgba(223, 183, 26, 0.911);
+    font-size : 50px;
+    text-align: center;
+    padding   : 30px;
+};
+
+.room-detail-card{
+    display: flex;
+}

@@ -1,0 +1,15 @@
+.detail-card-img {
+    height: 100%;
+    max-height   : 400px;
+    width        : auto;
+    max-width: 100%;
+    margin: auto;
+
+}
+
+.detail-room-name{
+    font-size: 50px;
+    color: orange;
+    text-align: center;
+    margin: 40px 0 40px 0;
+}

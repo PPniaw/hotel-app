@@ -15,11 +15,12 @@ export default class App extends Component {
         return (
             <BrowserRouter>
                 <Switch>
-                    <Route path='/home' component={Home}></Route>
-                    <Route path='/rooms' component={Rooms}></Route>
-                    <Route path='/rooms/detail' component={RoomDetail}></Route>
+                    <Route exact path='/' component={Home}></Route>
+                    <Route path='/meal' component={Home}></Route>
+                    <Route exact path='/rooms' component={Rooms}></Route>
+                    <Route path='/rooms/:roomId' component={RoomDetail}></Route>
                     <Route path='/connect' component={Connect}></Route>
-                    <Redirect to='/home'></Redirect>
+                    <Redirect to='/'></Redirect>
                 </Switch>
             </BrowserRouter>
         )

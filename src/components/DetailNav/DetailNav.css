@@ -1,0 +1,20 @@
+.detail-nav {
+    font-size  : 25px;
+}
+
+.detail-link {
+    color          : rgb(252, 237, 210);
+    text-decoration: none;
+}
+
+.detail-link:hover {
+    color: orange;
+
+}
+
+.detail-nav-item {
+    border       : 2px solid white;
+    border-radius: 10px;
+    height       : 60px;
+    line-height  : 60px;
+}
