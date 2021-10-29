@@ -8,6 +8,8 @@ import Wrapper from '../../components/Wrapper/Wrapper'
 import DetailNav from '../../components/DetailNav/DetailNav'
 import RoomDetailCard from '../../components/RoomDeatilCard/RoomDetailCard'
 
+import './RoomDetail.css'
+
 
 export default function RoomDetail(props) {
     const [roomID, setroomID] = useState(props.location.state.roomID)
@@ -21,16 +23,18 @@ export default function RoomDetail(props) {
         <div>
             <Header />
             <Wrapper />
-            <Container>
-                <Row>
-                    <Col className='room-header'>Room Type</Col>
+            <Container fluid>
+                <Row className='room-detail-row'>
+                    <Col  md={3} className='room-detail-nav-title'>Room Type</Col>
+                    <Col  md={9} className='room-detail-nav'>
+                        <DetailNav state={roomID} />
+                    </Col>
                 </Row>
             </Container>
-                <DetailNav state={roomID}/>
-                <RoomDetailCard
-                    className='room-detail-card'
-                    roomID={roomID}
-                />
+            <RoomDetailCard
+                className='room-detail-card'
+                roomID={roomID}
+            />
 
             <Footer />
         </div>

@@ -38,8 +38,9 @@ export default function DetailNav(props) {
 
 
     return (
-
+        
         <Nav fill className="detail-nav" >
+            
             {
                 currentRoomsData.map(room => (
                     <Nav.Item className="detail-nav-item">

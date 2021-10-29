@@ -1,11 +1,19 @@
+.room-detail-row{
+    margin: 20px;
+}
 
-.room-header {
-    color     : rgba(223, 183, 26, 0.911);
-    font-size : 50px;
-    text-align: center;
-    padding   : 30px;
-};
+.room-detail-nav-title {
+    color        : rgba(223, 183, 26, 0.911);
+    font-size    : 45px;
+    text-align   : center;
+    
+}
 
-.room-detail-card{
+
+.room-detail-nav {
+    padding: 13px 10px;
+}
+
+.room-detail-card {
     display: flex;
 }

@@ -1,15 +1,51 @@
+.room-detail-header {
+    color     : orange;
+    font-size : 50px;
+    text-align: center;
+    padding   : 30px;
+}
+
+
 .detail-card-img {
-    height: 100%;
-    max-height   : 400px;
-    width        : auto;
-    max-width: 100%;
-    margin: auto;
+    height    : 100%;
+    max-height: 400px;
+    width     : auto;
+    max-width : 100%;
+    margin    : auto;
 
 }
 
-.detail-room-name{
-    font-size: 50px;
-    color: orange;
+.detail-room-name {
+    font-size : 50px;
+    color     : orange;
     text-align: center;
-    margin: 40px 0 40px 0;
+    margin    : 40px 0 40px 0;
+}
+
+.room-detail-icons {
+    font-size   : 28px;
+    margin-right: 20px;
+    display     : inline-block;
+    /* text-align: center; */
+}
+
+.room-detail-des {
+    color    : white;
+    font-size: 20px;
+}
+
+.room-detail-button{
+    font-size: 25px;
+    /* background-color: rgb(192, 95, 26); */
+}
+
+.room-detail-checkIn{
+    font-size: 21px;
+    /* margin-left: -30px; */
+    margin-right: 10px;
+    display: inline-block;
+}
+
+span {
+    margin-right: 20px;
 }

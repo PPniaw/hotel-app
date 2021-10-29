@@ -8,7 +8,7 @@ import Wrapper from '../../components/Wrapper/Wrapper'
 
 import { apiGetAllRooms } from '../../api/api.js'
 
-import './Room.css'
+import './Rooms.css'
 
 
 export default function Rooms() {

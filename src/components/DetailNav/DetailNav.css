@@ -1,5 +1,6 @@
 .detail-nav {
     font-size  : 25px;
+
 }
 
 .detail-link {
@@ -15,6 +16,6 @@
 .detail-nav-item {
     border       : 2px solid white;
     border-radius: 10px;
-    height       : 60px;
-    line-height  : 60px;
+    /* height       : 60px; */
+    /* line-height  : 60px; */
 }
