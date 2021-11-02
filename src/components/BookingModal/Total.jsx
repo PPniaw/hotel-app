@@ -1,4 +1,4 @@
-import { React, useState, useEffect, useCallback } from 'react'
+import { React, useState, useEffect } from 'react'
 
 import { subDays, eachDayOfInterval } from 'date-fns';
 
@@ -13,46 +13,46 @@ export default function Total(props) {
     const [total, setTotal] = useState()
 
     useEffect(() => {
-        if(startDate===undefined||endDate===undefined){
+        if (startDate === undefined || endDate === undefined) {
             setTotalNormalNights(0)
             setTotalHolidayNights(0)
             setTotal(0)
         }
-        
-    }, [])
+
+    }, [startDate, endDate])
 
     useEffect(() => {
         if (endDate > startDate) {
             const eachPrice = eachDayOfInterval({
-    
+
                 start: startDate,
                 end: subDays(endDate, 1),
             })
                 .map(day => day.getDay(day))
                 .map(day => {
                     const holiday = day === 0 || day === 5 || day === 6;
-        
+
                     const pricePerDay = holiday ? holidayPrice : normalDayPrice;
-        
+
                     return pricePerDay;
                 })
 
-                console.log(eachPrice)
-            
-                setTotalNormalNights(
-                    eachPrice.filter((price)=>{return price===normalDayPrice}).length
-                )  
-                setTotalHolidayNights(
-                    eachPrice.filter((price)=>{return price===holidayPrice}).length
-                )  
-        
+            console.log(eachPrice)
+
+            setTotalNormalNights(
+                eachPrice.filter((price) => { return price === normalDayPrice }).length
+            )
+            setTotalHolidayNights(
+                eachPrice.filter((price) => { return price === holidayPrice }).length
+            )
+
             const total = eachPrice.reduce((sum, currentPrice) => {
                 return sum + currentPrice;
             })
-    
+
             setTotal(total)
         }
-    }, [startDate, endDate])
+    }, [startDate, endDate, normalDayPrice, holidayPrice])
 
     useEffect(() => {
         setStartDate(props.startDate)
@@ -64,9 +64,9 @@ export default function Total(props) {
         console.log(startDate)
         console.log(endDate)
         console.log(total)
-        
-        
-    }, [props, startDate, endDate])
+
+
+    }, [props, startDate, endDate,total])
 
     return (
         <div>

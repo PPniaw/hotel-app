@@ -46,6 +46,7 @@ export default function RoomDeatilCard(props) {
         // "Child-Friendly": false,
         // "Pet-Friendly": true
     })
+    const [booking, setBooking] = useState([])
 
     const [modalShow, setModalShow] = useState(false);
 
@@ -74,6 +75,7 @@ export default function RoomDeatilCard(props) {
                     setAmenities(
                         data.amenities
                     )
+                    setBooking(response.data.booking)
                 } catch (e) {
                     console.error(e);
                 }
@@ -164,6 +166,7 @@ export default function RoomDeatilCard(props) {
                                 onHide={() => setModalShow(false)}
                                 data={roomData}
                                 roomID={roomID}
+                                booking={booking}
                             />
                         </div>
 

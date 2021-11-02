@@ -2,7 +2,7 @@ import { React, useState, useEffect, useCallback } from 'react'
 import { Button, Modal, Form } from 'react-bootstrap'
 
 import DatePicker from 'react-datepicker';
-import { addDays, eachDayOfInterval, format } from 'date-fns';
+import { addDays, eachDayOfInterval, format, parseISO } from 'date-fns';
 
 
 import './BookingModal.css'
@@ -16,6 +16,7 @@ import Total from './Total';
 export default function BookingModal(props) {
   const [roomData, setRoomData] = useState(props.data)
   const [roomID, setRoomID] = useState(props.roomID)
+  const [booking, setBooking] = useState()
   const [validated, setValidated] = useState(false);
 
   const [startDate, setStartDate] = useState();
@@ -34,6 +35,7 @@ export default function BookingModal(props) {
   useEffect(() => {
     setRoomData(props.data)
     setRoomID(props.roomID)
+    setBooking(props.booking)
     // console.log(roomID)
     console.log(startDate)
     console.log(endDate)
@@ -52,6 +54,10 @@ export default function BookingModal(props) {
     setGuestTel(e.target.value)
   }
 
+  const excludeDates = () => {
+    return booking.map(data => parseISO(data.date));
+  };
+
   // const formatDate = useCallback(
   //   (endDate, startDate) => {
   //     if (endDate > startDate) {
@@ -67,37 +73,61 @@ export default function BookingModal(props) {
 
   useEffect(() => {
     if (endDate > startDate) {
-      const gettingFormData = eachDayOfInterval({
+      const gettingFormDate = eachDayOfInterval({
         start: startDate,
         end: endDate,
       })
         .map(date => format(new Date(date), 'yyyy-MM-dd'));
 
-        setSelectDate(gettingFormData)
+      setSelectDate(gettingFormDate)
     }
 
   }, [endDate, startDate])
 
-  const createFormData = (selectDate) => {
-    const date = selectDate
-    console.log(selectDate)
+  // const createFormData = useCallback(
+  //   () => {
+  //     const creatingFormData = () => {
+
+  //       console.log(selectDate)
+  //       setFormData({
+  //         name: guestName,
+  //         tel: guestTel,
+  //         date: selectDate,
+  //       })
+
+  //       console.log(formData)
+  //     }
+  //     creatingFormData()
+  //   }, [guestName,guestTel,selectDate,formData])
+
+  // const createFormData = () => {
+
+  //   console.log(selectDate)
+  //   setFormData({
+  //     name: guestName,
+  //     tel: guestTel,
+  //     date: selectDate,
+  //   })
+
+  //   console.log(formData)
+  // }
+
+  useEffect(() => {
+
     setFormData({
       name: guestName,
       tel: guestTel,
-      date: date,
+      date: selectDate,
     })
 
     console.log(formData)
-  }
 
-  useEffect(() => {
-    createFormData(selectDate)
-  }, [guestName,guestTel,selectDate])
+  }, [guestName, guestTel, selectDate])
 
   const sendFormData = useCallback(
     (roomID, formData) => {
       const sendingFormData = async (roomID, formData) => {
-
+        // createFormData()
 
         try {
 
@@ -120,6 +150,7 @@ export default function BookingModal(props) {
   // }, [sendFormData])
 
   const handleSubmit = (event) => {
+    console.log(formData)
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.preventDefault();
@@ -193,6 +224,7 @@ export default function BookingModal(props) {
               selectsStart
               startDate={startDate}
               minDate={new Date()}
+              excludeDates={excludeDates}
               placeholderText="Check in"
             />
             <span>-</span>
@@ -203,6 +235,7 @@ export default function BookingModal(props) {
               startDate={startDate}
               endDate={endDate}
               minDate={addDays(startDate, 1)}
+              excludeDates={excludeDates}
               placeholderText="Check Out"
             />
           </div>
