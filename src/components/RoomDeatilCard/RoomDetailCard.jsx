@@ -100,10 +100,10 @@ export default function RoomDeatilCard(props) {
             <Container fluid>
                 <Row className='room-detail-row'>
                     <Col sm={6} >
-                        <Carousel  >
+                        <Carousel>
                             {
-                                img.map(img => (
-                                    <Carousel.Item >
+                                img.map((img,index) => (
+                                    <Carousel.Item key={index} >
                                         <img
                                             className="d-block detail-card-img"
                                             src={img}

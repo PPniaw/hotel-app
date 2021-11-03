@@ -43,7 +43,7 @@ export default function DetailNav(props) {
             
             {
                 currentRoomsData.map(room => (
-                    <Nav.Item className="detail-nav-item">
+                    <Nav.Item className="detail-nav-item" key={room.id}>
                         {/* <Nav.Link href="/home">Active</Nav.Link> */}
                         <Link
                             className='detail-link'
@@ -51,7 +51,7 @@ export default function DetailNav(props) {
                                 pathname: `/rooms/${room.id}`,
                                 state: { roomID: room.id },
                             }}
-                            key={room.id}
+                            // key={room.id}
                             style={{ color: roomID === room.id ? 'orange' : null }}
                         >
                             {room.name}
